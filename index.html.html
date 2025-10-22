@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crypto List Manager — Dark</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Crypto List Manager</h1>
+      <div class="controls">
+        <input id="tvLink" type="url" placeholder="Paste TradingView link (e.g. https://www.tradingview.com/symbols/BTCUSDT/)" />
+        <button id="addBtn">Add Coin</button>
+      </div>
+    </header>
+
+    <section class="meta">
+      <div class="left">
+        <input id="search" placeholder="Search name or symbol..." />
+        <label class="switch"><input id="autorefresh" type="checkbox" checked><span>Auto-refresh 60s</span></label>
+      </div>
+      <div class="right">
+        <div class="total">Total (USD): <span id="totalValue">—</span></div>
+      </div>
+    </section>
+
+    <section class="list-wrap">
+      <ul id="coinList" class="coin-list"></ul>
+    </section>
+
+    <footer class="footer">
+      <small>Data via CoinGecko. Save file: <code>data/coins.json</code></small>
+      <div class="hint">Drag to reorder • Click star to favorite • Auto-saves</div>
+    </footer>
+  </main>
+
+  <template id="coinTpl">
+    <li class="coin-card" draggable="true" data-id="">
+      <div class="left">
+        <img class="logo" src="" alt="logo">
+        <div class="info">
+          <div class="name"></div>
+          <div class="symbol"></div>
+        </div>
+      </div>
+      <div class="center">
+        <div class="price">$<span class="price-val">—</span></div>
+        <div class="change">—</div>
+      </div>
+      <div class="actions">
+        <button class="visit">Visit</button>
+        <button class="fav" title="Favorite">☆</button>
+        <button class="del" title="Delete">🗑️</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
